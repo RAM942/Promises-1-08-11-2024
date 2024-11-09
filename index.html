@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises 1</title>
+</head>
+<body>
+    <script>
+
+        // Function that returns a promise
+function fetchData() {
+    return new Promise((resolve, reject) => {
+        
+            const num = prompt("enter the number: "); // Change this to false to simulate an error
+            if (num>0) {
+                resolve(`number is greater than zero and ${num} is positive number`);
+            } else if (num<0) {
+                resolve(`number is Lessthan zero and ${num} is negative number`);
+            }else if (num==0){
+                reject("You are given zero")
+            }
+            else {
+                reject("It is not a  number")
+            }
+        
+    });
+}
+
+// Consuming the promise
+fetchData()
+    .then((message) => {
+        console.log(message); 
+    })
+    .catch((error) => {
+        console.error(error); 
+    });
+
+    </script>
+</body>
+</html>
